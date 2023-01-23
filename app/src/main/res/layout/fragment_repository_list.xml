@@ -5,14 +5,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".RepositoryListFragment">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="data"/>
+        android:text="Hello World!"/>
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/repository_list_recycler_view"
+            android:layout_margin="10dp"
             tools:listitem="@layout/item_repository"/>
 
 

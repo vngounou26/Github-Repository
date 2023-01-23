@@ -1,5 +1,7 @@
 package com.example.githubrepository.Models
 
+import java.io.Serializable
+
 data class GithubRepositoryModel (val id: Int,
                                   val node_id: String,
                                   val name: String,
