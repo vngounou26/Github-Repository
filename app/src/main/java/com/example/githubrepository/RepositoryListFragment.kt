@@ -45,8 +45,6 @@ class RepositoryListFragment : Fragment(), View.OnClickListener {
 
         })
         viewModel.getAllRepository()
-
-
         return view
     }
 

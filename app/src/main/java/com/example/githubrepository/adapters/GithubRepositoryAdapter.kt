@@ -10,7 +10,7 @@ import com.example.githubrepository.Models.GithubRepositoryModel
 import com.example.githubrepository.R
 import com.example.githubrepository.RepositoryDetailFramgmrnt
 import com.example.githubrepository.RepositoryListFragment
-import com.example.githubrepository.RepositoryListFragmentDirections
+//import com.example.githubrepository.RepositoryListFragmentDirections
 
 class GithubRepositoryAdapter() :RecyclerView.Adapter<GithubRepositoryAdapter.GithubRepositoryViewHolder>() {
     class GithubRepositoryViewHolder(val view:android.view.View) :RecyclerView.ViewHolder(view){
@@ -19,6 +19,8 @@ class GithubRepositoryAdapter() :RecyclerView.Adapter<GithubRepositoryAdapter.Gi
         val description = view.findViewById<TextView>(R.id.repository_description)
         //val stars = view.findViewById<TextView>(R.id.stars)
         //val language = view.findViewById<TextView>(R.id.language)
+
+
     }
     var repos= mutableListOf<GithubRepositoryModel>()
 
