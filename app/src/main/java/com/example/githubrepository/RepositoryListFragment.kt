@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.githubrepository.Models.GithubRepositoryModel
 import com.example.githubrepository.Repositories.Client
 import com.example.githubrepository.Repositories.GithubReposRepository
@@ -32,9 +34,10 @@ class RepositoryListFragment : Fragment(), View.OnClickListener {
         var view=inflater.inflate(R.layout.fragment_repository_list, container, false)
         var recyclerView=view.findViewById<RecyclerView>(R.id.repository_list_recycler_view)
 
+        recyclerView.layoutManager=LinearLayoutManager(container?.context)
 
         viewModel = ViewModelProvider(this,RepositoryViewModelFactory(GithubReposRepository(githubApi))).get(RepositoryViewModel::class.java)
-        adapter = GithubRepositoryAdapter()
+        adapter = GithubRepositoryAdapter(this)
         recyclerView.adapter = adapter
 
         viewModel.repositoryLiveData.observe(viewLifecycleOwner, Observer {

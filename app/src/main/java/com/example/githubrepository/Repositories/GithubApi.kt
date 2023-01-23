@@ -7,7 +7,7 @@ import retrofit2.http.GET
 
 interface GithubApi {
     //get repositories from github api
-    @GET("repos")
+    @GET("user/repos?type=owner")
     fun getAllRepositories(): Call<List<GithubRepositoryModel>>
 
 }

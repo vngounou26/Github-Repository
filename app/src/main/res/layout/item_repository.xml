@@ -11,16 +11,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-            <TextView
-                android:id="@+id/repository_title"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/repository_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:padding="10dp"
                     android:text="Title"
-                    android:textSize="30sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     tools:text="Title"/>
+                <ImageView
+                    android:id="@+id/reposStatut"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     />
+            </LinearLayout>
             <TextView
                     android:id="@+id/repository_description"
                     android:layout_width="match_parent"
@@ -28,7 +38,7 @@
                     android:padding="10dp"
                     android:text="Description"
                     android:textSize="20sp"
-                    android:maxLines="2"
+                    android:maxLines="1"
                     android:ellipsize="end"
                     android:textColor="@android:color/darker_gray"
                     android:textStyle="italic"

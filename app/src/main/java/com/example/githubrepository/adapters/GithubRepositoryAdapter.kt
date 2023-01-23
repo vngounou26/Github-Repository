@@ -1,10 +1,13 @@
 package com.example.githubrepository.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View.OnClickListener
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubrepository.Models.GithubRepositoryModel
 import com.example.githubrepository.R
@@ -12,11 +15,12 @@ import com.example.githubrepository.RepositoryDetailFramgmrnt
 import com.example.githubrepository.RepositoryListFragment
 //import com.example.githubrepository.RepositoryListFragmentDirections
 
-class GithubRepositoryAdapter() :RecyclerView.Adapter<GithubRepositoryAdapter.GithubRepositoryViewHolder>() {
+class GithubRepositoryAdapter(itemClickListener: OnClickListener) :RecyclerView.Adapter<GithubRepositoryAdapter.GithubRepositoryViewHolder>() {
     class GithubRepositoryViewHolder(val view:android.view.View) :RecyclerView.ViewHolder(view){
         val cardview=view.findViewById<CardView>(R.id.card_view)
         val name = view.findViewById<TextView>(R.id.repository_title)
         val description = view.findViewById<TextView>(R.id.repository_description)
+        val reposStatut=view.findViewById<ImageView>(R.id.reposStatut)
         //val stars = view.findViewById<TextView>(R.id.stars)
         //val language = view.findViewById<TextView>(R.id.language)
 
@@ -34,11 +38,19 @@ class GithubRepositoryAdapter() :RecyclerView.Adapter<GithubRepositoryAdapter.Gi
         return GithubRepositoryViewHolder(view)
     }
 
+
     override fun onBindViewHolder(holder: GithubRepositoryViewHolder, position: Int) {
         val repo = repos[position]
         //holder.cardview.setOnClickListener(itemClickListener)
         holder.cardview.tag = position
         holder.name.text = repo.name
+
+        if (repo.visibility=="public"){
+            holder.reposStatut.setImageDrawable(ContextCompat.getDrawable(holder.cardview.context,R.drawable.public_repos))
+        }else{
+            holder.reposStatut.setImageDrawable(ContextCompat.getDrawable(holder.cardview.context,R.drawable.private_repos))
+        }
+
         holder.description.text = repo.description
 
         //holder.stars.text = repo.stars.toString()
